@@ -92,7 +92,6 @@ module Devise
           if (resource.blank? and ::Devise.ldap_create_user)
             resource = new
             resource[auth_key] = auth_key_value
-            resource.password = attributes[:password]
           end
 
           if resource.try(:valid_ldap_authentication?, attributes[:password])
